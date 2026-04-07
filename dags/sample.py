@@ -32,14 +32,14 @@ with DAG(
     )
 
     def subtract_numbers(x, y):
-        result = x - y
+        result = x/y
         print(f"{x} - {y} = {result}")
         return result
 
     subtract_task = PythonOperator(
         task_id="subtract_numbers",
         python_callable=subtract_numbers,
-        op_kwargs={"x": 10, "y": 4},
+        op_kwargs={"x": 10, "y": 0},
     )
 
     greet_task >> add_task >> subtract_task
